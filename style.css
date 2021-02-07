@@ -1,0 +1,36 @@
+input{
+    background-color: #F8F7F5;
+    text-align: start;
+    height: 50px;
+    border-style: none;
+}
+  ::-webkit-input-placeholder {
+    text-align: start;
+  }
+  
+  :-moz-placeholder {
+    text-align: start;
+  }
+
+  .search{
+      
+  }
+  .icon svg{
+    transform: scale(".0001");
+  }
+  button{
+      border-style: none;
+      background-color: #F06C4E;
+
+  }
+
+  input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.fa-user-circle-o{
+  color: gray;
+}
