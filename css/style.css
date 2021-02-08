@@ -67,6 +67,9 @@ button:focus {
     outline: none;
 }
 
-.fa-user-circle-o{
-  color: gray;
+ul li {
+  padding: 5px 0;
+}
+.bg-off-white{
+  background-color: whitesmoke;
 }
