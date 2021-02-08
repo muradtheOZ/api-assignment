@@ -1,5 +1,6 @@
 function showMeal(data) {
-    const mainDiv = document.getElementById("mealList");
+    
+        const mainDiv = document.getElementById("mealList");
     mainDiv.innerHTML = "";
     const mealItem = data.meals;
     mealItem.forEach(element => {
@@ -19,8 +20,10 @@ function showMeal(data) {
         addItem.innerHTML = itemName;
         mainDiv.appendChild(addItem);
     });
+    }
+    
 
-}
+
 
     const showIngredients = name => {
         const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${name}`;
@@ -117,11 +120,23 @@ function loadData(data) {
 const dataUrlFetch = document.getElementById("search").addEventListener('click', function () {
     const searchValue = document.getElementById("searchMeal");
     const value = searchValue.value;
-    const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + value;
+    if(value == ""){
+        console.log("clicked");
+        const mainBody =  document.getElementById("mealList");
+        const error = document.createElement('div');
+        error.innerHTML=`
+        <h1 class=" card margin p-5 m-5">  Please give some data </h1>
+        `;
+        mainBody.appendChild(error);
+    }
+    else{
+        const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + value;
     
-    loadData(url);
-
-    return url;
+        loadData(url);
+    
+        return url;
+    }
+  
 
 })
 
