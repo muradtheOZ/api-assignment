@@ -12,16 +12,34 @@ input{
     text-align: start;
   }
 
-  .search{
-      
-  }
   button{
       border-style: none;
       background-color: #F06C4E;
+      color: white;
 
   }
 
-  input:focus,
+ 
+  .api-card{
+    
+    height: 200px;
+    width: 300px;
+    background-color: whitesmoke;
+}
+.api-card img{
+  object-fit: cover;
+  height: 70%;
+}
+.api-card-body{
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+
+
+input:focus,
 select:focus,
 textarea:focus,
 button:focus {
