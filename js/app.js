@@ -21,22 +21,6 @@ function showMeal(data) {
     });
 
 }
-function IngredientsCaller(event) {
-    document.getElementById("ingredientList").innerHTML = ""
-     whichOneClicked = (event.target.innerText);
-    console.log( whichOneClicked);
-            if(whichOneClicked == ""){
-                whichOneClicked = document.getElementById("mealCLue").innerText
-            }
-        const mealArea = document.getElementById("mealList");
-        mealArea.style.display = "none";
-        const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + whichOneClicked;
-        fetch(url)
-        .then(res => res.json())
-        .then(data => showIngredients(data));
-        
-        
-    }
 
     const showIngredients = name => {
         const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${name}`;
@@ -74,13 +58,15 @@ function IngredientsCaller(event) {
             <li>${element[0].strIngredient11}</li>
             </ul>
             <div class = "double-button">
-            <button class ="half-widthBtn"> Youtube </button>
+            <button id="youtube" onclick ="youtube('${element[0].strYoutube}')"
+            class ="half-widthBtn"> Youtube Tutorial </button>
             <button onclick = "mainAreaSHow()" class ="half-widthBtn"> Go Back </button>
             </div>
     
            
             </div>
             `;
+            
         element.forEach(element => {
             let addItem = document.createElement('div');
             
@@ -102,6 +88,7 @@ function IngredientsCaller(event) {
         });
     };
     
+   
 
 
 
@@ -118,6 +105,8 @@ function mainAreaSHow(){
 
 
 
+
+
 function loadData(data) {
     fetch(data)
         .then(res => res.json())
@@ -131,9 +120,12 @@ const dataUrlFetch = document.getElementById("search").addEventListener('click',
     const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + value;
     
     loadData(url);
-    // location.reload();
-    // return true;
 
     return url;
 
 })
+
+function youtube(url){
+    let win = window.open(url, '_blank');
+        win.focus();
+}
